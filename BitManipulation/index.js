@@ -37,3 +37,32 @@ console.log(3 & 5)
 // 101 | 
 // 111 -> 7
 console.log(3 | 5);
+
+function binaryToDecimal(n) {
+    let index = 0;
+    let result = 0;
+    while (n !== 0) {
+        let lastDigit = n % 10;
+        if (lastDigit === 1) {
+            result = result + Math.floor(Math.pow(2, index));
+        }
+        index++;
+        n = n / 10;
+    }
+    return result;
+};
+
+console.log("binaryToDecimal", binaryToDecimal(1011)); // 11
+
+function decimalToBinaryString(num) {//10
+    let result = "";
+    while (num !== 0) {
+        let lastBit = num & 1;
+        result = lastBit + result;
+        num = num >> 1;
+    }
+    return result;
+}
+
+console.log("decimalToBinary", decimalToBinaryString(10)); // "1010"
+
